@@ -32,7 +32,7 @@ class CC():
     snakeLen = 3
     emptyCnt = SZ * SZ - snakeLen
     ini_borad=np.zeros((SZ+2,SZ+2))#0和SZ+1代表墙
-    board=np.zeros((SZ,SZ))#0代表空，1代表蛇身体，2代表头，3代表墙壁，-1代表食物
+    board=np.zeros((SZ+2,SZ+2))#0代表空，1代表蛇身体，2代表头，3代表墙壁，-1代表食物
     head=None
     rear = None
     fp=[(0,1),(0,-1),(1,0),(-1,0)]
@@ -109,7 +109,7 @@ class CC():
                 self.mkFood(1)
             fooded=1
         if self.nowstepCnt>=self.stepCntUp:
-            self.board, fooded, True
+            return self.board, fooded, True
         return self.board, fooded,self.emptyCnt==0
 
     def getDisFromFood(self):
